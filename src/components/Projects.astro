@@ -1,0 +1,139 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+}
+const PROJECTS = [
+  {
+    title: "Campus Inyawa - Sistema de gestión educativa",
+    description:
+      "Sistema Web personalizado para la gestion de una institucion academica. Creado desde cero con Eclipse IDE, Java, HTML y Bootstrap.",
+    link: "https://www.campusvirtualinyawaperu.com/",
+    github: "https://github.com/alvaro234214125/system-inyawa",
+    image: "/projects/inyawa.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "ChocoPerú - Tienda Ecommerce",
+    description:
+      "Tienda de Ecommerce personalizada para la venta de distintos tipos de productos de chocolate. Creada desde cero con intelliJ, MySql, React, Vite.js y Tailwind CSS.",
+    link: "https://inyawaperu.pe/",
+    image: "/projects/inyawaweb.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+]
+---
+
+<div class="grid gap-8 md:grid-cols-2">
+  {PROJECTS.slice(0, 2).map(({ image, title, description, tags, link, github }) => (
+<article class="flex flex-col p-2 justify-between h-full transition duration-300 rounded-2xl bg-white/0 backdrop-blur-md border border-white/20 hover:shadow-xl hover:border-white/40 hover:bg-white/5">
+      <div class="overflow-hidden rounded-xl aspect-video mb-4">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          class="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
+        />
+      </div>
+
+      <div class="p-7 flex flex-col flex-grow">
+        <h3 class="text-xl font-bold text-white mb-2">{title}</h3>
+        <p class="text-sm text-gray-300 mb-4">{description}</p>
+
+        <ul class="flex flex-wrap gap-2 mb-4">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`inline-flex items-center gap-x-1 px-3 py-1 rounded-full text-xs font-medium ${tag.class}`}
+              >
+                <tag.icon class="w-4 h-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <footer class="flex gap-x-3 mt-auto">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="w-5 h-5" />
+              Code
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="w-4 h-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+      </div>
+    </article>
+  ))}
+</div>
+
+<article
+  class="flex flex-col md:flex-row p-2 gap-6 mt-8 transition duration-300 rounded-2xl bg-white/0 backdrop-blur-md border border-white/20 hover:shadow-xl hover:border-white/40 hover:bg-white/10 min-h-[300px]"
+>
+  <div class="w-full md:w-1/2 h-auto flex-shrink-0">
+    <div class="relative w-full h-full min-h-[300px] rounded-xl overflow-hidden">
+      <img
+        src={PROJECTS[0].image}
+        alt={PROJECTS[0].title}
+        loading="lazy"
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+      />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 flex flex-col justify-between p-7">
+    <div>
+      <h3 class="text-2xl font-bold text-white mb-2">{PROJECTS[0].title} (Versión extendida)</h3>
+      <p class="text-sm text-gray-300 mb-4">
+        {PROJECTS[0].description} Esta es una versión extendida con más información de fondo sobre el desarrollo, los retos enfrentados y cómo se logró desplegar el sistema a producción. Incluye funcionalidades avanzadas como generación de reportes, gestión de matrículas y autenticación con tokens JWT.
+      </p>
+
+      <ul class="flex flex-wrap gap-2 mb-4">
+        {PROJECTS[0].tags.map((tag) => (
+          <li>
+            <span
+              class={`inline-flex items-center gap-x-1 px-3 py-1 rounded-full text-xs font-medium ${tag.class}`}
+            >
+              <tag.icon class="w-4 h-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <footer class="flex gap-x-3 mt-auto">
+      {PROJECTS[0].github && (
+        <LinkButton href={PROJECTS[0].github}>
+          <GitHub class="w-5 h-5" />
+          Code
+        </LinkButton>
+      )}
+      {PROJECTS[0].link && (
+        <LinkButton href={PROJECTS[0].link}>
+          <Link class="w-4 h-4" />
+          Preview
+        </LinkButton>
+      )}
+    </footer>
+  </div>
+</article>

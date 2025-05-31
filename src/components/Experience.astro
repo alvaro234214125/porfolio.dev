@@ -1,0 +1,29 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Mayo 2024 - Actualmente...",
+    title: "Desarrollador FullStack / Community Manager",
+    company: "Inyawa Perú",
+    description:
+      "Lideré el diseño, desarrollo e implementación de soluciones tecnológicas clave que optimizaron los procesos internos de la empresa, mejorando la eficiencia operativa y la experiencia digital tanto para el equipo administrativo como para alumnos y docentes.",
+  },
+  {
+    date: "Junio 2025",
+    title: "Freelancer",
+    company: "Singular",
+    description:
+      "Responsable de la creacion de una pagina web para un centro de terapias, administrando SEO avanzado, arquitectura web, diseño web para una mejor experiencia UI/UX, etc.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
