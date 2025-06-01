@@ -42,13 +42,15 @@ const PROJECTS = [
     tags: [TAGS.ECLIPSE, TAGS.JAVA, TAGS.HTML, TAGS.JAVASCRIPT, TAGS.CSS, TAGS.BOOTSTRAP, TAGS.MYSQL],
   },
   {
-    title: "ChocoPerú - Tienda Ecommerce",
-    description:
-      "Plataforma ecommerce desarrollada desde cero para la venta de chocolates artesanales. Incluye carrito de compras, pagos, valoraciones, panel administrativo y más.",
-    link: "#proyectos",
-    image: "/projects/chocoperu.webp",
-    tags: [TAGS.INTELLIJ, TAGS.JAVA, TAGS.MYSQL, TAGS.REACT, TAGS.VITE, TAGS.TAILWIND],
-  },
+  title: "ChocoPerú - Tienda Ecommerce",
+  description:
+    "Plataforma ecommerce desarrollada desde cero para la venta de chocolates artesanales. Incluye carrito de compras, pagos, valoraciones, panel administrativo y más.",
+  githubFrontend: "https://github.com/alvaro234214125/chocoperu-frontend",
+  githubBackend: "https://github.com/alvaro234214125/chocoperu-backend",
+  image: "/projects/chocoperu.webp",
+  tags: [TAGS.INTELLIJ, TAGS.JAVA, TAGS.MYSQL, TAGS.REACT, TAGS.VITE, TAGS.TAILWIND],
+},
+
   {
     title: "Inyawa Perú - Página Web Informativa",
     description:
@@ -60,9 +62,9 @@ const PROJECTS = [
 ];
 ---
 <div class="grid gap-8 md:grid-cols-2">
-  {PROJECTS.slice(0, 2).map(({ image, title, description, tags, link, github }) => (
+  {PROJECTS.slice(0, 2).map(({ image, title, description, tags, link, github, githubFrontend, githubBackend}) => (
     <article
-      class="flex flex-col p-2 justify-between h-full transition duration-300 rounded-2xl
+      class="flex flex-col p-1 justify-between h-full transition duration-300 rounded-2xl
              bg-white/80 dark:bg-white/5 backdrop-blur-md
              border border-gray-300 dark:border-white/20
              hover:shadow-xl hover:border-gray-400 dark:hover:border-white/40 hover:bg-gray-100 dark:hover:bg-white/10"
@@ -93,27 +95,44 @@ const PROJECTS = [
           ))}
         </ul>
 
-        <footer class="flex gap-x-3 mt-auto">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="w-5 h-5" />
-              Code
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="w-4 h-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
+        <footer class="flex gap-x-3 mt-auto flex-wrap">
+  {githubFrontend || githubBackend ? (
+    <>
+      {githubFrontend && (
+        <LinkButton href={githubFrontend}>
+          <GitHub class="w-5 h-5" />
+          Frontend
+        </LinkButton>
+      )}
+      {githubBackend && (
+        <LinkButton href={githubBackend}>
+          <GitHub class="w-5 h-5" />
+          Backend
+        </LinkButton>
+      )}
+    </>
+  ) : github && (
+    <LinkButton href={github}>
+      <GitHub class="w-5 h-5" />
+      Code
+    </LinkButton>
+  )}
+  
+  {link && (
+    <LinkButton href={link}>
+      <Link class="w-4 h-4" />
+      Preview
+    </LinkButton>
+  )}
+</footer>
+
       </div>
     </article>
   ))}
 </div>
 
 <article
-  class="flex flex-col md:flex-row p-2 gap-6 mt-8 transition duration-300 rounded-2xl
+  class="flex flex-col md:flex-row p-1 gap-6 mt-8 transition duration-300 rounded-2xl
          bg-white/80 dark:bg-white/5 backdrop-blur-md
          border border-gray-300 dark:border-white/20
          hover:shadow-xl hover:border-gray-400 dark:hover:border-white/40 hover:bg-gray-100 dark:hover:bg-white/10
