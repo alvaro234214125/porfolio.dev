@@ -5,6 +5,9 @@ import LinkedInIcon from "../components/icons/LinkedIn.astro"
 import MailIcon from "../components/icons/Mail.astro"
 import SocialPill from "../components/SocialPill.astro"
 import GitHubIcon from '../components/icons/GitHub.astro';
+import InstagramIcon from "../components/icons/Instagram.astro"
+import FacebookIcon from '../components/icons/Facebook.astro';
+import Instagram from "../components/icons/Instagram.astro"
 ---
 
 <div class="max-w-xl">
@@ -36,17 +39,25 @@ import GitHubIcon from '../components/icons/GitHub.astro';
     > de Lima, Perú. Especializado en el desarrollo de aplicaciones web.
   </p>
   <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="mailto:alvarocesardiazchang2@gmail.com">
-      <MailIcon class="size-4" />
-      alvarocesardiazchang2@gmail.com
-    </SocialPill>
+    <SocialPill href="https://www.instagram.com/diaz.alvaroo/">
+					<InstagramIcon class="size-4 md:size-7"/>
+					Instagram
+		</SocialPill> 
+    <SocialPill href="https://www.facebook.com/alvaro.suha">
+					<FacebookIcon class="size-4 md:size-7"/>
+					Facebook
+		</SocialPill> 
     <SocialPill href="https://www.linkedin.com/in/alvarodiazchang/">
-      <LinkedInIcon class="size-4" />
+      <LinkedInIcon class="size-4  md:size-5" />
       LinkedIn
     </SocialPill>
     <SocialPill href="https://github.com/alvaro234214125">
 					<GitHubIcon class="size-4 md:size-6"/>
 					GitHub
-				</SocialPill>
+		</SocialPill>
+    <SocialPill href="mailto:alvarocesardiazchang2@gmail.com">
+      <MailIcon class="size-4" />
+      alvarocesardiazchang2@gmail.com
+    </SocialPill>
   </nav>
 </div>
