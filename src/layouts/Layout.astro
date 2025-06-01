@@ -23,11 +23,16 @@ const { description, title } = Astro.props
     <ViewTransitions />
   </head>
   <body class="relative min-h-screen bg-black text-white font-sans overflow-x-hidden">
-    
-    <div class="pointer-events-none fixed inset-0 -z-10">
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-      <div class="absolute left-[10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_250px_at_50%_300px,#ffffff20,#00000000_70%,#00000050)]"></div>
-    </div>
+   <div class="pointer-events-none fixed inset-0 -z-10">
+  <!-- Fondo modo oscuro -->
+  <div class="dark:block hidden absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+  <div class="dark:block hidden absolute left-[10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_250px_at_50%_300px,#ffffff20,#00000000_70%,#00000050)]"></div>
+
+  <!-- Fondo modo claro -->
+  <div class="dark:hidden block absolute inset-0 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+    <div class="absolute left-0 right-0 top-0 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+  </div>
+</div>
 
     <Header />
       <slot />

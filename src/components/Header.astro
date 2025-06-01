@@ -3,39 +3,25 @@ import '../styles/global.css';
 import ThemeToggle from "./ThemeToggle.astro"
 
 const navItems = [
-  {
-    title: "Experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
-  },
-  {
-    title: "Proyectos",
-    label: "proyectos",
-    url: "/#proyectos",
-  },
-  {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "/#sobre-mi",
-  },
-  {
-    title: "Contacto",
-    label: "contacto",
-    url: "mailto:alvarocesardiazchang2@gmail.com",
-  },
+  { title: "Experiencia", label: "experiencia", url: "/#experiencia" },
+  { title: "Proyectos", label: "proyectos", url: "/#proyectos" },
+  { title: "Sobre mí", label: "sobre-mi", url: "/#sobre-mi" },
+  { title: "Contacto", label: "contacto", url: "mailto:alvarocesardiazchang2@gmail.com" },
 ]
 ---
 
-<header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
->
+<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2">
   <nav
-  class="flex px-4 py-1 text-sm font-medium rounded-full text-gray-100 justify-center items-center border border-[0.1px] backdrop-blur-md bg-black/60 border-black dark:border-white"
->
+    id="main-nav"
+    class="flex px-4 py-1 text-sm font-medium rounded-full justify-center items-center
+    transition-all duration-300
+    text-gray-700 dark:text-white"
+  >
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-purple-300 dark:hover:text-purple-300"
+          class="relative block px-2 py-2 transition-colors
+          hover:text-purple-600 dark:hover:text-purple-300"
           aria-label={link.label}
           href={link.url}
         >
@@ -46,75 +32,89 @@ const navItems = [
     <ThemeToggle />
   </nav>
 </header>
+
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+    const nav = document.getElementById("main-nav");
+    if (!nav) return;
 
-    const callback = (entries: any[]) => {
+    const html = document.documentElement;
+
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        nav.classList.add("scrolled");
+
+        if (html.classList.contains("dark")) {
+          nav.classList.remove("light-scroll");
+          nav.classList.add("dark-scroll");
+        } else {
+          nav.classList.remove("dark-scroll");
+          nav.classList.add("light-scroll");
+        }
+      } else {
+        nav.classList.remove("scrolled", "light-scroll", "dark-scroll");
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("#main-nav a[aria-label]");
+
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-purple-300")
+          navLinks.forEach((link) => {
+            if (link.getAttribute("aria-label") === entry.target.id) {
+              link.classList.add("text-purple-600", "dark:text-purple-300");
             } else {
-              item.classList.remove("text-purple-300")
+              link.classList.remove("text-purple-600", "dark:text-purple-300");
             }
-          })
+          });
         }
-      })
-    }
-
-    const observer = new IntersectionObserver(callback, {
+      });
+    }, {
       root: null,
-      rootMargin: "0px",
       threshold: 0.3,
-    })
+    });
 
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
+    sections.forEach(section => observer.observe(section));
 
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect()
+        observer.disconnect();
       } else {
-        sections.forEach((section) => {
-          observer.observe(section)
-        })
+        sections.forEach(section => observer.observe(section));
       }
-    }
-  })
+    };
+  });
 </script>
+
 <style>
-nav {
-  animation: fade-in-nav linear forwards;
-  animation-timeline: scroll();
-  animation-range: 0 150px;
+#main-nav {
+  background-color: transparent;
+  border: 1px solid transparent;
+  backdrop-filter: none;
+  box-shadow: none;
   transition: all 0.3s ease;
-  border-color: black;
 }
 
-@media (prefers-color-scheme: dark) {
-  nav {
-    border-color: white;
-  }
+#main-nav.scrolled {
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-width: 1px;
 }
 
-@keyframes fade-in-nav {
-  0% {
-    background-color: rgba(0, 0, 0, 0); 
-    border-width: 0;
-    backdrop-filter: blur(0px);
-    box-shadow: none;
-  }
-  100% {
-    background-color: rgba(0, 0, 0, 0.6); 
-    border-width: 0.5px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  }
+#main-nav.light-scroll {
+  background-color: rgba(255, 255, 255, 0.6); 
+  border-color: #777777; 
+  color: #333333;
 }
 
+#main-nav.dark-scroll {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-color: white;
+  color: white;
+}
 </style>
-
