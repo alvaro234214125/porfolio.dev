@@ -1,0 +1,69 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro"
+import CheckIcon from "@/components/icons/CheckIcon.astro"
+import UsersIcon from "@/components/icons/UsersIcon.astro"
+import ChartIcon from "@/components/icons/ChartIcon.astro"
+---
+
+<SectionContainer class="py-16 md:pt-20 pb-10 px-8 sm:px-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <div class="flex justify-center hidden sm:flex">
+      <img
+        src="/projects/whychooseme.webp"
+        alt="Ilustración beneficios de trabajar conmigo"
+        class="w-64 sm:w-72 md:w-80 lg:w-96 max-w-full scale-x-[-1]"
+      />
+    </div>
+
+    <div class="space-y-6">
+      <p class="text-sm font-semibold text-gray-500 uppercase">
+        ¿Por qué elegirme?
+      </p>
+      <h2 class="text-3xl font-bold text-zinc-900 dark:text-white leading-snug">
+        Tu tiempo vale. <br />
+        Descubrí mis diferenciales.
+      </h2>
+
+      <ul class="space-y-6 text-zinc-700 dark:text-zinc-200 text-base">
+        <li class="flex gap-4 items-start">
+          <CheckIcon />
+          <div>
+            <h3 class="font-semibold text-zinc-900 dark:text-white">
+              Desarrollo a medida
+            </h3>
+            <p>Sitios personalizados según tu rubro y necesidades reales.</p>
+          </div>
+        </li>
+
+        <li class="flex gap-4 items-start">
+          <UsersIcon />
+          <div>
+            <h3 class="font-semibold text-zinc-900 dark:text-white">
+              Comunicación directa
+            </h3>
+            <p>Tratás directamente conmigo durante todo el proyecto.</p>
+          </div>
+        </li>
+
+        <li class="flex gap-4 items-start">
+          <ChartIcon />
+          <div>
+            <h3 class="font-semibold text-zinc-900 dark:text-white">
+              Enfocado en resultados
+            </h3>
+            <p>Diseño web orientado a conversiones, velocidad y posicionamiento.</p>
+          </div>
+        </li>
+      </ul>
+
+      <a
+  href="https://wa.me/51953212812?text=Hola%2C%20quiero%20más%20información%20sobre%20tus%20servicios%20web"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="inline-block mt-6 px-6 py-3 bg-purple-500 text-white font-semibold rounded-lg shadow hover:bg-purple-700 transition"
+>
+  Contáctame por WhatsApp
+</a>
+    </div>
+  </div>
+</SectionContainer>
