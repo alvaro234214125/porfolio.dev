@@ -11,24 +11,28 @@ const { targetId = "extra-projects" } = Astro.props;
 </button>
 
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
     const button = document.getElementById("toggle-button");
-    const section = document.getElementById(button.dataset.target);
+    const section = document.getElementById(button?.dataset.target);
+
+    if (!button || !section) return;
 
     let isExpanded = false;
 
     button.addEventListener("click", () => {
       isExpanded = !isExpanded;
 
-      if (isExpanded) {
-        section.classList.remove("max-h-0", "opacity-0", "scale-95");
-        section.classList.add("max-h-[2000px]", "opacity-100", "scale-100");
-        button.textContent = "Mostrar menos proyectos";
-      } else {
-        section.classList.remove("max-h-[2000px]", "opacity-100", "scale-100");
-        section.classList.add("max-h-0", "opacity-0", "scale-95");
-        button.textContent = "Ver más proyectos";
-      }
+      section.classList.toggle("max-h-0", !isExpanded);
+      section.classList.toggle("opacity-0", !isExpanded);
+      section.classList.toggle("scale-95", !isExpanded);
+
+      section.classList.toggle("max-h-[2000px]", isExpanded);
+      section.classList.toggle("opacity-100", isExpanded);
+      section.classList.toggle("scale-100", isExpanded);
+
+      button.textContent = isExpanded
+        ? "Mostrar menos proyectos"
+        : "Ver más proyectos";
     });
-  });
+  }, 100);
 </script>
