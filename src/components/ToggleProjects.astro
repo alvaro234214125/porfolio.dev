@@ -1,0 +1,34 @@
+---
+const { targetId = "extra-projects" } = Astro.props;
+---
+
+<button
+  id="toggle-button"
+  class="px-6 py-2 bg-purple-500 text-white text-sm rounded-full hover:bg-purple-600 transition"
+  data-target={targetId}
+>
+  Ver más proyectos
+</button>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("toggle-button");
+    const section = document.getElementById(button.dataset.target);
+
+    let isExpanded = false;
+
+    button.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+
+      if (isExpanded) {
+        section.classList.remove("max-h-0", "opacity-0", "scale-95");
+        section.classList.add("max-h-[2000px]", "opacity-100", "scale-100");
+        button.textContent = "Mostrar menos proyectos";
+      } else {
+        section.classList.remove("max-h-[2000px]", "opacity-100", "scale-100");
+        section.classList.add("max-h-0", "opacity-0", "scale-95");
+        button.textContent = "Ver más proyectos";
+      }
+    });
+  });
+</script>

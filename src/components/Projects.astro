@@ -4,78 +4,82 @@ import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
-import Eclipse from "./icons/Eclipse.astro";
-import Java from "./icons/Java.astro";
-import HTML from "./icons/HTML.astro";
-import CSS from "./icons/CSS.astro";
-import Bootstrap from "./icons/Bootstrap.astro";
-import MySQL from "./icons/MySQL.astro";
-import IntelliJ from "./icons/IntelliJ.astro";
-import ReactIcon from "./icons/React.astro";
-import WordPress from "./icons/WordPress.astro";
-import Javascript from "./icons/Javascript.astro";
-import Vite from "./icons/Vite.astro";
+import Eclipse from "./icons/Eclipse.astro"
+import Java from "./icons/Java.astro"
+import HTML from "./icons/HTML.astro"
+import CSS from "./icons/CSS.astro"
+import Bootstrap from "./icons/Bootstrap.astro"
+import MySQL from "./icons/MySQL.astro"
+import IntelliJ from "./icons/IntelliJ.astro"
+import ReactIcon from "./icons/React.astro"
+import WordPress from "./icons/WordPress.astro"
+import Javascript from "./icons/Javascript.astro"
+import Vite from "./icons/Vite.astro"
+import ANGULAR from "./icons/Angular.astro"
+import ToggleProjects from "./ToggleProjects.astro";
+import Angular from "./icons/Angular.astro"
 
 const TAGS = {
-  NEXT:       { name: "Next.js", class: "bg-[#1a1a1a] text-white", icon: NextJS },
-  TAILWIND:   { name: "Tailwind CSS", class: "bg-[#003159] text-white", icon: Tailwind },
-  ECLIPSE:    { name: "Eclipse", class: "bg-[#2e1a47] text-white", icon: Eclipse }, 
-  JAVA:       { name: "Java", class: "bg-[#5c2e00] text-white", icon: Java }, 
-  HTML:       { name: "HTML", class: "bg-[#5c2e00] text-white", icon: HTML },
-  CSS:        { name: "CSS", class: "bg-[#1c3e78] text-white", icon: CSS }, 
-  BOOTSTRAP:  { name: "Bootstrap", class: "bg-[#2e1a47] text-white", icon: Bootstrap }, 
-  MYSQL: { name: "MySQL", class: "bg-[#8fcfcb] text-black", icon: MySQL }, 
+  ANGULAR: { name: "Angular", class: "bg-[#8f1f0c9c] text-white", icon: Angular },
+  NEXT: { name: "Next.js", class: "bg-[#1a1a1a] text-white", icon: NextJS },
+  TAILWIND: { name: "Tailwind CSS", class: "bg-[#003159] text-white", icon: Tailwind },
+  ECLIPSE: { name: "Eclipse", class: "bg-[#2e1a47] text-white", icon: Eclipse },
+  JAVA: { name: "Java", class: "bg-[#5c2e00] text-white", icon: Java },
+  HTML: { name: "HTML", class: "bg-[#5c2e00] text-white", icon: HTML },
+  CSS: { name: "CSS", class: "bg-[#1c3e78] text-white", icon: CSS },
+  BOOTSTRAP: { name: "Bootstrap", class: "bg-[#2e1a47] text-white", icon: Bootstrap },
+  MYSQL: { name: "MySQL", class: "bg-[#8fcfcb] text-black", icon: MySQL },
   INTELLIJ: { name: "IntelliJ", class: "bg-[#3f3f3f] text-white", icon: IntelliJ },
-  REACT:      { name: "React", class: "bg-[#0d3b66] text-white", icon: ReactIcon }, 
-  WORDPRESS:  { name: "WordPress", class: "bg-[#1e3a5f] text-white", icon: WordPress },
+  REACT: { name: "React", class: "bg-[#0d3b66] text-white", icon: ReactIcon },
+  WORDPRESS: { name: "WordPress", class: "bg-[#1e3a5f] text-white", icon: WordPress },
   JAVASCRIPT: { name: "Javascript", class: "bg-[#b38700] text-white", icon: Javascript },
   VITE: { name: "Vite", class: "bg-[#b38700] text-white", icon: Vite },
 }
+
 const PROJECTS = [
   {
     title: "Campus Inyawa - Sistema de Gestión Educativa",
-    description:
-      "Desarrollado desde cero, este sistema web permite administrar de forma eficiente una institución académica. Cuenta con funcionalidades como autenticación segura, control de matrículas, reportes y más.",
+    description: "Desarrollado desde cero, este sistema web permite administrar de forma eficiente una institución académica. Cuenta con funcionalidades como autenticación segura, control de matrículas, reportes y más.",
     link: "https://www.campusvirtualinyawaperu.com/",
     github: "https://github.com/alvaro234214125/system-inyawa",
     image: "/projects/inyawa.webp",
     tags: [TAGS.ECLIPSE, TAGS.JAVA, TAGS.HTML, TAGS.JAVASCRIPT, TAGS.CSS, TAGS.BOOTSTRAP, TAGS.MYSQL],
   },
   {
-  title: "ChocoPerú - Tienda Ecommerce",
-  description:
-    "Plataforma ecommerce desarrollada desde cero para la venta de chocolates artesanales. Incluye carrito de compras, pagos, valoraciones, panel administrativo y más.",
-  githubFrontend: "https://github.com/alvaro234214125/chocoperu-frontend",
-  githubBackend: "https://github.com/alvaro234214125/chocoperu-backend",
-  image: "/projects/chocoperu.webp",
-  tags: [TAGS.INTELLIJ, TAGS.JAVA, TAGS.MYSQL, TAGS.REACT, TAGS.VITE, TAGS.TAILWIND],
-},
-
+    title: "CRM - Plataforma de Gestión de Clientes",
+    description: "Aplicación web para gestionar clientes, ventas y seguimiento de oportunidades comerciales. Incluye autenticación, panel administrativo y reportes.",
+    githubFrontend: "https://github.com/alvaro234214125/frontend-crm",
+    githubBackend: "https://github.com/alvaro234214125/crm-backend",
+    image: "/projects/crm.webp",
+    tags: [TAGS.INTELLIJ, TAGS.JAVA, TAGS.MYSQL, TAGS.ANGULAR, TAGS.TAILWIND],
+  },
   {
     title: "Inyawa Perú - Página Web Informativa",
-    description:
-      "Sitio web institucional para mostrar información sobre servicios, historia y contacto de la institución educativa. Desarrollado íntegramente con WordPress, optimizado para dispositivos móviles y con buen posicionamiento SEO.",
+    description: "Sitio web institucional para mostrar información sobre servicios, historia y contacto de la institución educativa. Desarrollado con WordPress, optimizado para móviles y SEO.",
     link: "https://inyawaperu.pe/",
     image: "/projects/inyawaweb.webp",
     tags: [TAGS.WORDPRESS],
   },
-];
+  {
+    title: "ChocoPerú - Tienda Ecommerce",
+    description: "Plataforma ecommerce desarrollada desde cero para la venta de chocolates artesanales. Incluye carrito de compras, pagos, valoraciones, panel administrativo y más.",
+    githubFrontend: "https://github.com/alvaro234214125/chocoperu-frontend",
+    githubBackend: "https://github.com/alvaro234214125/chocoperu-backend",
+    image: "/projects/chocoperu.webp",
+    tags: [TAGS.INTELLIJ, TAGS.JAVA, TAGS.MYSQL, TAGS.REACT, TAGS.VITE, TAGS.TAILWIND],
+  },
+]
+
 ---
+
 <div class="grid gap-8 md:grid-cols-2">
-  {PROJECTS.slice(0, 2).map(({ image, title, description, tags, link, github, githubFrontend, githubBackend}) => (
-    <article
-      class="flex flex-col p-1 justify-between h-full transition duration-300 rounded-2xl
-             bg-white/80 dark:bg-white/5 backdrop-blur-md
-             border border-gray-300 dark:border-white/20
-             hover:shadow-xl hover:border-gray-400 dark:hover:border-white/40 hover:bg-gray-100 dark:hover:bg-white/10"
-    >
+  {PROJECTS.slice(0, 2).map(({ image, title, description, tags, link, github, githubFrontend, githubBackend }) => (
+    <article class="flex flex-col p-1 justify-between h-full transition duration-300 rounded-2xl
+                    bg-white/80 dark:bg-white/5 backdrop-blur-md
+                    border border-gray-300 dark:border-white/20
+                    hover:shadow-xl hover:border-gray-400 dark:hover:border-white/40 hover:bg-gray-100 dark:hover:bg-white/10">
       <div class="overflow-hidden rounded-xl aspect-video mb-4">
-        <img
-          src={image}
-          alt={title}
-          loading="lazy"
-          class="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
-        />
+        <img src={image} alt={title} loading="lazy" class="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105" />
       </div>
 
       <div class="p-7 flex flex-col flex-grow">
@@ -85,9 +89,7 @@ const PROJECTS = [
         <ul class="flex flex-wrap gap-2 mb-4">
           {tags.map((tag) => (
             <li>
-              <span
-                class={`inline-flex items-center gap-x-1 px-3 py-1 rounded-full text-xs font-medium ${tag.class}`}
-              >
+              <span class={`inline-flex items-center gap-x-1 px-3 py-1 rounded-full text-xs font-medium ${tag.class}`}>
                 <tag.icon class="w-4 h-4" />
                 {tag.name}
               </span>
@@ -96,72 +98,59 @@ const PROJECTS = [
         </ul>
 
         <footer class="flex gap-x-3 mt-auto flex-wrap">
-  {githubFrontend || githubBackend ? (
-    <>
-      {githubFrontend && (
-        <LinkButton href={githubFrontend}>
-          <GitHub class="w-5 h-5" />
-          Frontend
-        </LinkButton>
-      )}
-      {githubBackend && (
-        <LinkButton href={githubBackend}>
-          <GitHub class="w-5 h-5" />
-          Backend
-        </LinkButton>
-      )}
-    </>
-  ) : github && (
-    <LinkButton href={github}>
-      <GitHub class="w-5 h-5" />
-      Code
-    </LinkButton>
-  )}
-  
-  {link && (
-    <LinkButton href={link}>
-      <Link class="w-4 h-4" />
-      Preview
-    </LinkButton>
-  )}
-</footer>
+          {githubFrontend || githubBackend ? (
+            <>
+              {githubFrontend && (
+                <LinkButton href={githubFrontend}>
+                  <GitHub class="w-5 h-5" />
+                  Frontend
+                </LinkButton>
+              )}
+              {githubBackend && (
+                <LinkButton href={githubBackend}>
+                  <GitHub class="w-5 h-5" />
+                  Backend
+                </LinkButton>
+              )}
+            </>
+          ) : github && (
+            <LinkButton href={github}>
+              <GitHub class="w-5 h-5" />
+              Code
+            </LinkButton>
+          )}
 
+          {link && (
+            <LinkButton href={link}>
+              <Link class="w-4 h-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
       </div>
     </article>
   ))}
 </div>
 
-<article
-  class="flex flex-col md:flex-row p-1 gap-6 mt-8 transition duration-300 rounded-2xl
-         bg-white/80 dark:bg-white/5 backdrop-blur-md
-         border border-gray-300 dark:border-white/20
-         hover:shadow-xl hover:border-gray-400 dark:hover:border-white/40 hover:bg-gray-100 dark:hover:bg-white/10
-         min-h-[300px]"
->
+<article class="flex flex-col md:flex-row p-1 gap-6 mt-8 transition duration-300 rounded-2xl
+                bg-white/80 dark:bg-white/5 backdrop-blur-md
+                border border-gray-300 dark:border-white/20
+                hover:shadow-xl hover:border-gray-400 dark:hover:border-white/40 hover:bg-gray-100 dark:hover:bg-white/10 min-h-[300px]">
   <div class="w-full md:w-1/2 h-auto flex-shrink-0">
     <div class="relative w-full h-full min-h-[300px] rounded-xl overflow-hidden">
-      <img
-        src={PROJECTS[2].image}
-        alt={PROJECTS[2].title}
-        loading="lazy"
-        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
-      />
+      <img src={PROJECTS[2].image} alt={PROJECTS[2].title} loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105" />
     </div>
   </div>
 
   <div class="w-full md:w-1/2 flex flex-col justify-between p-7">
     <div>
       <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{PROJECTS[2].title}</h3>
-      <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
-        {PROJECTS[2].description}
-      </p>
+      <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{PROJECTS[2].description}</p>
 
       <ul class="flex flex-wrap gap-2 mb-4">
         {PROJECTS[2].tags.map((tag) => (
           <li>
-            <span
-              class={`inline-flex items-center gap-x-1 px-3 py-1 rounded-full text-xs font-medium ${tag.class}`}
-            >
+            <span class={`inline-flex items-center gap-x-1 px-3 py-1 rounded-full text-xs font-medium ${tag.class}`}>
               <tag.icon class="w-4 h-4" />
               {tag.name}
             </span>
@@ -171,7 +160,7 @@ const PROJECTS = [
     </div>
 
     <footer class="flex gap-x-3 mt-auto">
-      {PROJECTS[0].link && (
+      {PROJECTS[2].link && (
         <LinkButton href={PROJECTS[2].link}>
           <Link class="w-4 h-4" />
           Preview
@@ -179,5 +168,68 @@ const PROJECTS = [
       )}
     </footer>
   </div>
-  
 </article>
+
+<div id="extra-projects" class="grid gap-8 md:grid-cols-2 mt-8 max-h-0 overflow-hidden transition-all duration-700 ease-in-out opacity-0 scale-95">
+  {PROJECTS.slice(3).map(({ image, title, description, tags, link, github, githubFrontend, githubBackend }) => (
+    <article class="flex flex-col p-1 justify-between h-full transition duration-300 rounded-2xl
+                    bg-white/80 dark:bg-white/5 backdrop-blur-md
+                    border border-gray-300 dark:border-white/20
+                    hover:shadow-xl hover:border-gray-400 dark:hover:border-white/40 hover:bg-gray-100 dark:hover:bg-white/10">
+      <div class="overflow-hidden rounded-xl aspect-video mb-4">
+        <img src={image} alt={title} loading="lazy" class="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105" />
+      </div>
+
+      <div class="p-7 flex flex-col flex-grow">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{description}</p>
+
+        <ul class="flex flex-wrap gap-2 mb-4">
+          {tags.map((tag) => (
+            <li>
+              <span class={`inline-flex items-center gap-x-1 px-3 py-1 rounded-full text-xs font-medium ${tag.class}`}>
+                <tag.icon class="w-4 h-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <footer class="flex gap-x-3 mt-auto flex-wrap">
+          {githubFrontend || githubBackend ? (
+            <>
+              {githubFrontend && (
+                <LinkButton href={githubFrontend}>
+                  <GitHub class="w-5 h-5" />
+                  Frontend
+                </LinkButton>
+              )}
+              {githubBackend && (
+                <LinkButton href={githubBackend}>
+                  <GitHub class="w-5 h-5" />
+                  Backend
+                </LinkButton>
+              )}
+            </>
+          ) : github && (
+            <LinkButton href={github}>
+              <GitHub class="w-5 h-5" />
+              Code
+            </LinkButton>
+          )}
+
+          {link && (
+            <LinkButton href={link}>
+              <Link class="w-4 h-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+      </div>
+    </article>
+  ))}
+</div>
+
+<div class="flex justify-center mt-10">
+  <ToggleProjects targetId="extra-projects" />
+</div>
